@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
 
                             });
-                            stringRequest.setRetryPolicy(new DefaultRetryPolicy(1000, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                            stringRequest.setRetryPolicy(new DefaultRetryPolicy(100000, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                             Intent intent = new Intent(getApplicationContext(), UserDetails.class);
                             intent.putExtra("MI number", intentData);
                             startActivity(intent);

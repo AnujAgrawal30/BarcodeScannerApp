@@ -10,9 +10,164 @@
         android:id="@+id/scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan"
+        android:text="@string/scan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mi_number_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/mi_number"
+        app:layout_constraintStart_toStartOf="@+id/name_field"
+        app:layout_constraintTop_toBottomOf="@+id/name_field" />
+
+    <TextView
+        android:id="@+id/email_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/email"
+        app:layout_constraintStart_toStartOf="@+id/mi_number_field"
+        app:layout_constraintTop_toBottomOf="@+id/mi_number_field" />
+
+    <TextView
+        android:id="@+id/mobile_number_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/mobile_number"
+        app:layout_constraintStart_toStartOf="@+id/email_field"
+        app:layout_constraintTop_toBottomOf="@+id/email_field" />
+
+    <TextView
+        android:id="@+id/gender_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/gender"
+        app:layout_constraintStart_toStartOf="@+id/mobile_number_field"
+        app:layout_constraintTop_toBottomOf="@+id/mobile_number_field" />
+
+    <TextView
+        android:id="@+id/year_of_study_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/year_of_study"
+        app:layout_constraintStart_toStartOf="@+id/gender_field"
+        app:layout_constraintTop_toBottomOf="@+id/gender_field" />
+
+    <TextView
+        android:id="@+id/present_city_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/present_city"
+        app:layout_constraintStart_toStartOf="@+id/year_of_study_field"
+        app:layout_constraintTop_toBottomOf="@+id/year_of_study_field" />
+
+    <TextView
+        android:id="@+id/present_college_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/present_college"
+        app:layout_constraintStart_toStartOf="@+id/present_city_field"
+        app:layout_constraintTop_toBottomOf="@+id/present_city_field" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toEndOf="@+id/name_field"
+        app:layout_constraintTop_toTopOf="@+id/name_field" />
+
+    <TextView
+        android:id="@+id/mi_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintStart_toEndOf="@+id/mi_number_field"
+        app:layout_constraintTop_toTopOf="@+id/mi_number_field" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.366"
+        app:layout_constraintStart_toEndOf="@+id/email_field"
+        app:layout_constraintTop_toTopOf="@+id/email_field" />
+
+    <TextView
+        android:id="@+id/mobile_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toEndOf="@+id/mobile_number_field"
+        app:layout_constraintTop_toTopOf="@+id/mobile_number_field" />
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintStart_toEndOf="@+id/gender_field"
+        app:layout_constraintTop_toTopOf="@+id/gender_field" />
+
+    <TextView
+        android:id="@+id/present_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintStart_toEndOf="@+id/present_city_field"
+        app:layout_constraintTop_toTopOf="@+id/present_city_field" />
+
+    <TextView
+        android:id="@+id/year_of_study"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toEndOf="@+id/year_of_study_field"
+        app:layout_constraintTop_toTopOf="@+id/year_of_study_field" />
+
+    <TextView
+        android:id="@+id/present_college"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintStart_toEndOf="@+id/present_college_field"
+        app:layout_constraintTop_toTopOf="@+id/present_college_field" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
