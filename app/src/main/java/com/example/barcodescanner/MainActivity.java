@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.SparseArray;
@@ -12,9 +13,11 @@ import android.view.SurfaceView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     SurfaceView surfaceView;
     TextView txtBarcodeValue;
-    private BarcodeDetector barcodeDetector;
+    Boolean scanned = false;
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     String intentData = "";
@@ -46,10 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initialiseDetectorsAndSources() {
-
         Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
 
-        barcodeDetector = new BarcodeDetector.Builder(this)
+        final BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.ALL_FORMATS)
                 .build();
 
@@ -97,16 +99,18 @@ public class MainActivity extends AppCompatActivity {
             public void receiveDetections(Detector.Detections<Barcode> detections) {
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();
                 if (barcodes.size() != 0) {
-
-
                     txtBarcodeValue.post(new Runnable() {
 
                         @Override
                         public void run() {
+//                            if (scanned){
+//                                return;
+//                            }
+//                            scanned = true;
                             intentData = barcodes.valueAt(0).displayValue;
                             txtBarcodeValue.setText(intentData);
                             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                            final String url = "http://192.168.0.5:8000/polls/lk/" + intentData;
+                            final String url = "http://192.168.0.10:8000/polls/lk/" + intentData;
 
 
 // Request a string response from the provided URL.
@@ -120,11 +124,19 @@ public class MainActivity extends AppCompatActivity {
                                     }, new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(getApplicationContext(), url, Toast.LENGTH_LONG).show();
+                                    if (error instanceof TimeoutError){
+                                        barcodeDetector.release();
+                                    }
+                                    Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
                                 }
-                            });
 
+                            });
+                            stringRequest.setRetryPolicy(new DefaultRetryPolicy(1000, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                            Intent intent = new Intent(getApplicationContext(), UserDetails.class);
+                            intent.putExtra("MI number", intentData);
+                            startActivity(intent);
 // Add the request to the RequestQueue.
+                            queue.cancelAll(queue);
                             queue.add(stringRequest);
 
                         }
