@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
 //                                return;
 //                            }
 //                            scanned = true;
+                            barcodeDetector.release();
                             intentData = barcodes.valueAt(0).displayValue;
                             txtBarcodeValue.setText(intentData);
                             RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
@@ -132,9 +133,12 @@ public class MainActivity extends AppCompatActivity {
 
                             });
                             stringRequest.setRetryPolicy(new DefaultRetryPolicy(100000, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-                            Intent intent = new Intent(getApplicationContext(), UserDetails.class);
-                            intent.putExtra("MI number", intentData);
-                            startActivity(intent);
+                            if(!scanned) {
+                                Intent intent = new Intent(getApplicationContext(), UserDetails.class);
+                                intent.putExtra("MI number", intentData);
+                                startActivity(intent);
+                                scanned = true;
+                            }
 // Add the request to the RequestQueue.
                             queue.cancelAll(queue);
                             queue.add(stringRequest);
@@ -152,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         cameraSource.release();
+        scanned = false;
     }
 
     @Override
