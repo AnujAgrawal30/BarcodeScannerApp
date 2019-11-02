@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initialiseDetectorsAndSources() {
-        Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
 
         final BarcodeDetector barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.ALL_FORMATS)
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
-                Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void onResponse(String response) {
                                             // Display the first 500 characters of the response string.
-                                            Toast.makeText(getApplicationContext(), "Response is: "+ response, Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                                         }
                                     }, new Response.ErrorListener() {
                                 @Override

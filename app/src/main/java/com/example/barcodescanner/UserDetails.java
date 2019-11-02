@@ -42,7 +42,7 @@ public class UserDetails extends AppCompatActivity {
         pcollege = findViewById(R.id.present_college);
         minum = getIntent().getStringExtra("MI number");
         setView(minum);
-        Toast.makeText(getApplicationContext(), minum, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "ID: " + minum, Toast.LENGTH_LONG).show();
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
