@@ -16,6 +16,7 @@ public class User {
 //    private int checkedin;
     private String present_city;
     private String present_college;
+    private String barcode_number;
 
     public String getName() {
         return name;
@@ -133,15 +134,24 @@ public class User {
         return present_college;
     }
 
+    public String getBarcode_number() {
+        return barcode_number;
+    }
+
+    public void setBarcode_number(String barcode_number) {
+        this.barcode_number = barcode_number;
+    }
+
     public void setPresent_college(String present_college) {
         this.present_college = present_college;
     }
 
-    public User(String name, String mi_number, String google_id, String email, String cr_referral_code, String mobile_number, String postal_address, String permanent_address, int zip_code, String gender, String dob, String year_of_study, int checkedin, String present_city, String present_college) {
+    public User(String name, String mi_number, String google_id, String email, String barcode_number, String cr_referral_code, String mobile_number, String postal_address, String permanent_address, int zip_code, String gender, String dob, String year_of_study, int checkedin, String present_city, String present_college) {
         this.name = name;
         this.mi_number = mi_number;
 //        this.google_id = google_id;
         this.email = email;
+        this.barcode_number = barcode_number;
 //        this.cr_referral_code = cr_referral_code;
         this.mobile_number = mobile_number;
 //        this.postal_address = postal_address;

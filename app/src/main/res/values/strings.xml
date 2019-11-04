@@ -9,4 +9,7 @@
     <string name="present_city">Present City</string>
     <string name="present_college">Present College</string>
     <string name="scan">Scan</string>
+    <string name="no_barcode_detected">No Barcode Detected</string>
+    <string name="ditch">Ditch</string>
+    <string name="this_mi_number_is_already_registered">This MI number is already registered</string>
 </resources>
