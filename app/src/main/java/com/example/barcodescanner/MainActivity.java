@@ -175,7 +175,7 @@ public class MainActivity extends Activity {
 
     private void next(){
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        final String url = "http://192.168.0.10:8000/polls/lk/" + intentData;
+        final String url = "http://192.168.0.11:8000/polls/lk/" + intentData;
 
 
 // Request a string response from the provided URL.
